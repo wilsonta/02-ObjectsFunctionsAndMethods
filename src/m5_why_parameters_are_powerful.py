@@ -24,8 +24,11 @@ def main():
    # draw_circles(rg.Point(100, 50))
     #draw_circles(rg.Point(-200, 0))
 
-    better_draw_circles(rg.Point(100,50),25)
-    better_draw_circles(rg.Point(-200,0),50)
+   # better_draw_circles(rg.Point(100,50),25)
+    #better_draw_circles(rg.Point(-200,0),50)
+
+    even_better_draw_circles(rg.Point(100,50),25,7,'blue',5)
+    even_better_draw_circles(rg.Point(30, 200),150, 4,'green',20)
 
     window.update()
     window.close_on_mouse_click()
@@ -148,7 +151,7 @@ def better_draw_circles(point,r):
 
 
 ###############################################################################
-# TODO: 4a.
+# DONE: 4a.
 #   In the previous _TODO_, you made a MORE POWERFUL version
 #   of   draw_circles   by introducing a PARAMETER for the amount
 #   by which the radii of the concentric circles increase.
@@ -170,7 +173,7 @@ def better_draw_circles(point,r):
 #   to the body of the   even_better_draw_circles   function defined below.
 #   Then add parameters and modify the code to make them work!
 #
-# TODO: 4b.
+# DONE: 4b.
 #   In   main  at the place indicated, comment-out the existing calls
 #   to  better_draw_circles  and add at least two calls to the improved
 #   even_better_draw_circles  function, to TEST that your modified code is
@@ -178,28 +181,29 @@ def better_draw_circles(point,r):
 #
 ###############################################################################
 
-def even_better_draw_circles(point):
+def even_better_draw_circles(point,r,numofcircles,color,thickness):
     """ An improved version of draw_circles, per the _TODO_ above. """
     # READ the above _TODO_ and then copy-paste code from better_circles here:
-
     turtle = rg.SimpleTurtle()
+    turtle.pen=rg.Pen(color,thickness)
     turtle.pen_up()
     turtle.go_to(point)
     turtle.set_heading(0)  # Point "east" (towards the right)
 
-    for k in range(1, 11):  # k becomes 1, 2, 3, ... 10
+    for k in range(1, numofcircles):  # k becomes 1, 2, 3, ... 10
 
         turtle.pen_up()
 
         # Go DOWN 15 pixels, ending up pointing east again
         turtle.right(90)
-        turtle.forward(15)
+        turtle.forward(r)
         turtle.left(90)
 
         turtle.pen_down()
-        turtle.draw_circle(15 * k)
+        turtle.draw_circle(r * k)
+
 ###############################################################################
-# TODO: 5.
+# DONE: 5.
 #
 # Finally, comment-out the existing calls to  even_better_draw_circles  and
 # add code in   main  to draw various circles that form a BEAUTIFUL picture!
