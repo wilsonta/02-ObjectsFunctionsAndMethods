@@ -189,9 +189,7 @@ def try_methods_and_functions():
     blueturtle.pen=rg.Pen('black',3)
     blueturtle.backward(200)
 
-    r=30
-    p=rg.Point(0,0)
-    blueturtle.circle=rg.Circle(p,r)
+    blueturtle.draw_circle(30)
     draw_many_squares(blueturtle,1,50,0)
 
     """
